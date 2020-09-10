@@ -1,0 +1,32 @@
+ID,Activity Name,Manhour,Type of Worker,Min_Workers,Fixed,Location,Max_Workers
+1,Wall Stud Installation,40,Joiner,2,FALSE,Inside,4
+2,Install Door and Window Frame (Short Side),40,Window Framer,2,FALSE,Inside,4
+3,Install Wall Pipe (Short Side),10,Pipefitter,1,FALSE,Inside,4
+4,Install Wall Pipe (Long Side),20,Pipefitter,1,FALSE,Inside,4
+5,Fix Wall Pipe (Long Side),10,Pipefitter,1,FALSE,Inside,4
+6,Install Electric Power Distribution Cabinet (Short Side),5,Electricians,1,FALSE,Inside,4
+7,Install Power Outlet Box and Electric Wire,20,Electricians,2,FALSE,Inside,4
+8,Inside Stud Installation (Bath Room),10,Joiner,1,FALSE,Inside,4
+9,Install Pipe in Pipe Shaft Frame,80,Pipefitter,2,FALSE,Inside,4
+10,Install Outlet Socket (Short Aisle Side),20,Electricians,2,FALSE,Inside,4
+11,Lighting and Outlet Socket Wiring ,40,Electricians,2,FALSE,Inside,4
+12,Install Stiffening Plate for Fixing Sanitary Fixture in Bathroom,10,Joiner,1,FALSE,Inside,2
+13,Install Water Proof Gypsum Board to Bathroom,80,Dryliner(Drywaller),2,FALSE,Inside,2
+14,Install Power Outlet Box and Electric Wire,20,Electricians,2,FALSE,Inside,4
+15,Install Fire and Water Proof Gypsum Borad to Inside Wall (Long Side),20,Dryliner(Drywaller),2,FALSE,Inside,4
+16,Install Fire Proof Gypsum Board to Inside Wall (Long Side),140,Dryliner(Drywaller),2,FALSE,Inside,4
+17,Install Gypsum Board to Inside Wall (Short Side),80,Dryliner(Drywaller),2,FALSE,Inside,4
+18,Install Hanger Bolt for Suspended Ceiling,40,Joiner,2,FALSE,Inside,4
+19,Install Carring Channel for Suspended Ceiling,20,Joiner,2,FALSE,Inside,4
+20,Install M-bar for Suspended Ceiling,40,Joiner,2,FALSE,Inside,4
+21,Install Curtain Box,40,Joiner,2,FALSE,Inside,4
+22,Install Insulator(Glass Wool) to Wall(Long Side),60,Insulation worker,2,FALSE,Inside,4
+23,Install Insulator(Glass Wool) to Wall(Long Side),60,Insulation worker,2,FALSE,Inside,4
+24,Install Insulator(Glass Wool) to Wall(Short Side),30,Insulation worker,1,FALSE,Inside,4
+25,Electric Wiring in Ceiling   ,60,Electricians,2,FALSE,Inside,4
+26,Install Gypsum Board to Ceiling,120,Dryliner(Drywaller),2,FALSE,Inside,4
+27,Install Molding to Ceilling,30,Dryliner(Drywaller),1,FALSE,Inside,2
+28,Install Cement Board (CRC) (Long Side),40,Dryliner(Drywaller),2,FALSE,Inside,4
+29,Install Cement Board (CRC) (Long Side),40,Dryliner(Drywaller),2,FALSE,Inside,4
+30,Install Cement Board (CRC) (Short Side),40,Dryliner(Drywaller),2,FALSE,Inside,4
+31,Install Door,60,Window Framer,2,FALSE,Inside,4
