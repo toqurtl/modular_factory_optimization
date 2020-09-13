@@ -15,6 +15,9 @@ class Optimizer(object):
         self.__setting()
         self.setting_complete = True
 
+    def set_local_algorithm(self, local_enum):
+        self.multi_obj_generator.local_algorithm_enum = local_enum
+
     # input of func: chro_str, output of func: np_array
     def __set_objective_function(self, func):
         self.multi_obj_generator.set_fitness_func(func)
