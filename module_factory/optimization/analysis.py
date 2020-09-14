@@ -1,6 +1,7 @@
 from module_factory.component.production_line import ProductionLine
 from module_factory.optimization import utils
 from moga.generation import Fronting
+from moga.chromosome import BinaryChromosome
 from copy import deepcopy
 from pandas import DataFrame, ExcelWriter
 from matplotlib import pyplot as plt
@@ -13,6 +14,9 @@ class MultiObjectiveAnalyzer(object):
     basic_save_info_row = ['generation', 'time', 'chromosome']
 
     # function for basic value
+    @staticmethod
+    def chromosome_to_factory(chromosome, production_line, initialize):
+        return utils.create_factory_from_chromosome(chromosome, production_line, initialize=initialize)
 
     @staticmethod
     def get_objective_column(num_objectives=2):
@@ -65,7 +69,7 @@ class MultiObjectiveAnalyzer(object):
         MultiObjectiveAnalyzer.to_figure(file_path, figure_front_list, [-1, 1])
 
     @staticmethod
-    def save_generation_info_to_excel(generation_dict, file_path):
+    def save_generation_info_to_excel(generation_dict, production_line, file_path, intialize=False):
         num_objective = MultiObjectiveAnalyzer.get_num_objective(generation_dict[1])
         row_list = []
         for num, generation, time in generation_dict.values():
@@ -74,11 +78,14 @@ class MultiObjectiveAnalyzer(object):
                 chro_list.extend([num, time, chromosome_info[0]])
                 for idx in range(0, num_objective):
                     chro_list.append(chromosome_info[1][idx])
+                pheno_info = BinaryChromosome.get_phenotye(chromosome_info[0])
+                cycle_time = utils.cycle_time_from_pheno_type(pheno_info)
+                chro_list.append(cycle_time)
                 row_list.append(chro_list)
         save_info_row = deepcopy(MultiObjectiveAnalyzer.basic_save_info_row)
         for idx in range(0, num_objective):
             save_info_row.append('objectvie' + str(idx + 1))
-
+        save_info_row.append('cycle_time')
         df = DataFrame(row_list, columns=save_info_row)
 
         with ExcelWriter(file_path, engine='xlsxwriter') as writer:
