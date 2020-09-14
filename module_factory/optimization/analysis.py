@@ -78,7 +78,7 @@ class MultiObjectiveAnalyzer(object):
                 chro_list.extend([num, time, chromosome_info[0]])
                 for idx in range(0, num_objective):
                     chro_list.append(chromosome_info[1][idx])
-                pheno_info = BinaryChromosome.get_phenotye(chromosome_info[0])
+                pheno_info = BinaryChromosome.get_phenotype(chromosome_info[0])
                 cycle_time = utils.cycle_time_from_pheno_type(pheno_info)
                 chro_list.append(cycle_time)
                 row_list.append(chro_list)
