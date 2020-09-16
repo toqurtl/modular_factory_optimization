@@ -40,9 +40,9 @@ class Optimizer(object):
             self.optimizer.initialization(generation=generation)
         return self.setting_complete
 
-    def optimize(self, file_path=None):
+    def optimize(self, file_path=None, generation=None):
         if self.setting_complete:
-            self.optimizer.optimize(file_path)
+            self.optimizer.optimize(file_path=file_path, generation=generation)
         return self.setting_complete
 
     def to_analyzer(self):
