@@ -35,9 +35,9 @@ class Optimizer(object):
             num_objective=optimizer_parameter_dict['num_objective']
         )
 
-    def initialization(self):
+    def initialization(self, generation=None):
         if self.setting_complete:
-            self.optimizer.initialization()
+            self.optimizer.initialization(generation=generation)
         return self.setting_complete
 
     def optimize(self, file_path=None):
