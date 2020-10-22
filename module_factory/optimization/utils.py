@@ -1,8 +1,22 @@
 from moga.chromosome import BinaryChromosome
 from module_factory.optimization import utils
+import math
+
+
+def get_digit(min_value, max_value):
+    idx, num_value = 1, max_value - min_value + 1
+    while True:
+        if num_value <= math.pow(2, idx):
+            break
+        idx += 1
+    return idx
 
 
 def cycle_time_from_pheno_type(pheno_type: type(dict)):
+    return pheno_type['cycle_time']
+
+
+def cycle_time_idx_from_pheno_type(pheno_type: type(dict)):
     return pheno_type['cycle_time']
 
 
@@ -14,8 +28,17 @@ def labor_num_list_from_pheno_type(pheno_type: type(dict)):
     return labor_num_list
 
 
-def create_factory_from_pheno_type(pheno_type: type(dict), production_line, initialize=False):
+def create_factory_from_pheno_type_2(pheno_type: type(dict), production_line, initialize=False):
     cycle_time = cycle_time_from_pheno_type(pheno_type)[0]
+    labor_num_list = labor_num_list_from_pheno_type(pheno_type)
+    buildable, factory = production_line.create_factory(cycle_time=cycle_time, labor_num_list=labor_num_list, initialize=initialize)
+    return buildable, factory
+
+
+def create_factory_from_pheno_type(pheno_type: type(dict), production_line, initialize=False):
+    cycle_time_idx = cycle_time_from_pheno_type(pheno_type)[0]
+    print(cycle_time_idx, len(production_line.cycle_dict))
+    cycle_time = production_line.cycle_dict[cycle_time_idx]
     labor_num_list = labor_num_list_from_pheno_type(pheno_type)
     buildable, factory = production_line.create_factory(cycle_time=cycle_time, labor_num_list=labor_num_list, initialize=initialize)
     return buildable, factory
@@ -29,13 +52,21 @@ def create_factory_from_chromosome(chromosome, production_line, initialize=False
 
 def production_line_to_geno_shape(production_line):
     geno_shape = {}
+    # cycle_content = {
+    #     'num': 1,
+    #     'min': production_line.min_cycle,
+    #     'max': production_line.max_cycle,
+    #     'digit': 8,
+    #     'offspring': -32
+    # }
     cycle_content = {
         'num': 1,
-        'min': production_line.min_cycle,
-        'max': production_line.max_cycle,
-        'digit': 8,
-        'offspring': -32
+        'min': 0,
+        'max': len(production_line.cycle_dict),
+        'digit': get_digit(0, len(production_line.cycle_dict)),
+        'offspring': 0
     }
+
     geno_shape['cycle_time'] = cycle_content
     for activity in production_line:
         activity_content = {'num': 1,

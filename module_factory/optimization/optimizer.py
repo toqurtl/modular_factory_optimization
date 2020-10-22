@@ -61,4 +61,3 @@ class Optimizer(object):
                 time = self.optimizer.time_measure_list[idx-1]
                 generation_dict[num] = (num, generation, time)
         return generation_dict
-

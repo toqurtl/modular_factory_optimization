@@ -19,6 +19,7 @@ class ProductionLine(list):
 
         self.min_cycle = 32
         self.max_cycle = 255
+        self.cycle_dict = {}
         self.max_labor_list = self.get_max_labor_list()
         self.labor_fixed_list = self.get_labor_fixed_list()
 
@@ -73,6 +74,17 @@ class ProductionLine(list):
         df = DataFrame(row_list, columns=print_info_list)
         print(df)
         return df
+
+    def set_cycle_dict(self, cycle_dict):
+        self.cycle_dict = cycle_dict
+
+    def set_cycle_dict_with_min_max(self, min_cycle, max_cycle):
+        self.cycle_dict.clear()
+        cycle_time_list = list(range(min_cycle, max_cycle+1))
+        cycle_time_dict = {}
+        for idx, cycle_time in enumerate(cycle_time_list):
+            cycle_time_dict[idx] = cycle_time
+        self.cycle_dict = cycle_time_dict
 
     def save_production_line(self):
         pass

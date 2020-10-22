@@ -1,7 +1,6 @@
-from module_factory.component.production_line import ProductionLine
-from module_factory.optimization import utils
 from moga.generation import Fronting
 from moga.chromosome import BinaryChromosome
+from module_factory.optimization import utils
 from copy import deepcopy
 from pandas import DataFrame, ExcelWriter
 from matplotlib import pyplot as plt
