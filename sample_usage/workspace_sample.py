@@ -13,7 +13,6 @@ production_line = ProductionLine('sample_data/production_line_200903.csv')
 cycle_time_min = 60
 cycle_time_max = 90
 cycle_list = [30, 60, 90]
-# production_line.set_cycle_dict_with_min_max(cycle_time_min, cycle_time_max)
 production_line.set_cycle_dict(cycle_list)
 geno_shape = utils.production_line_to_geno_shape(production_line)
 
