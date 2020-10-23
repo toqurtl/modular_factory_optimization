@@ -75,8 +75,11 @@ class ProductionLine(list):
         print(df)
         return df
 
-    def set_cycle_dict(self, cycle_dict):
-        self.cycle_dict = cycle_dict
+    def set_cycle_dict(self, cycle_list):
+        self.cycle_dict.clear()
+        for idx, cycle_time in enumerate(cycle_list):
+            self.cycle_dict[idx] = cycle_time
+        return
 
     def set_cycle_dict_with_min_max(self, min_cycle, max_cycle):
         self.cycle_dict.clear()
@@ -85,6 +88,7 @@ class ProductionLine(list):
         for idx, cycle_time in enumerate(cycle_time_list):
             cycle_time_dict[idx] = cycle_time
         self.cycle_dict = cycle_time_dict
+        return
 
     def save_production_line(self):
         pass
